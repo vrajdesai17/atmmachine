@@ -227,6 +227,7 @@ public class Login extends javax.swing.JFrame {
     PreparedStatement pst = null;
     ResultSet Rs = null;
     Statement St = null;
+    
     private void LoginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBtnMouseClicked
         if(UnameTb.getText().isEmpty() || PasswordTb.getText().isEmpty())
         {
@@ -234,11 +235,11 @@ public class Login extends javax.swing.JFrame {
         }else{
             String Query = "select * from Accounttbl where AccNum='"+UnameTb.getText()+"' and PIN="+PasswordTb.getText()+"";
         try{
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             St = con.createStatement();
             Rs = St.executeQuery(Query);
             if(Rs.next()){
-                new MainMenu(Rs.getInt(1)).setVisible(true);
+                new MainMenu1(Rs.getInt(1)).setVisible(true);
                 this.dispose();
             }else
             {

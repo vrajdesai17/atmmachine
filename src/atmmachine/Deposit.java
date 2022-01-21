@@ -40,7 +40,7 @@ public class Deposit extends javax.swing.JFrame {
     {
         String Query = "select * from Accounttbl where AccNum='"+MyAccNum+"'";
         try{
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             St1 = (Statement) con.createStatement();
             Rs1 = St1.executeQuery(Query);
             if(Rs1.next()){
@@ -250,8 +250,8 @@ public class Deposit extends javax.swing.JFrame {
         else
         {
             try{
-            String Query = "Update AccountTbl set Balance ? Where AccNum ? ";
-            Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
+            String Query = "Update AccountTbl set Balance =? Where AccNum =? ";
+            Connection Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             PreparedStatement ps=Con.prepareStatement(Query);
             ps.setInt(1, OldBalance+Integer.valueOf(AmountTb.getText()));
             ps.setInt(2, MyAccNum);

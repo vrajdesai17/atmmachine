@@ -235,7 +235,9 @@ public class Login extends javax.swing.JFrame {
         }else{
             String Query = "select * from Accounttbl where AccNum='"+UnameTb.getText()+"' and PIN="+PasswordTb.getText()+"";
         try{
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
+            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             St = con.createStatement();
             Rs = St.executeQuery(Query);
             if(Rs.next()){

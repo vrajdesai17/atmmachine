@@ -131,7 +131,7 @@ public class SignUp extends javax.swing.JFrame {
         AccNameTb.setText("Name");
         AccNameTb.setMinimumSize(new java.awt.Dimension(100, 14));
 
-        AccNameTn.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        AccNameTn.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         AccNameTn.setForeground(new java.awt.Color(255, 0, 51));
         AccNameTn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,6 +205,8 @@ public class SignUp extends javax.swing.JFrame {
         jLabel17.setMinimumSize(new java.awt.Dimension(100, 14));
 
         AddressTb.setColumns(20);
+        AddressTb.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        AddressTb.setForeground(new java.awt.Color(255, 0, 51));
         AddressTb.setRows(5);
         jScrollPane2.setViewportView(AddressTb);
 
@@ -356,7 +358,7 @@ public class SignUp extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(SubmitBTN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -382,10 +384,6 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ACCNUMTnActionPerformed
 
-    private void AccNameTnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccNameTnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AccNameTnActionPerformed
-
     private void LaNameTnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaNameTnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LaNameTnActionPerformed
@@ -410,7 +408,17 @@ public class SignUp extends javax.swing.JFrame {
     PreparedStatement pst = null;
     ResultSet Rs = null;
     Statement St = null;
-    
+    private void clear()
+    {
+        ACCNUMTb.setText("");
+        AccNameTb.setText("");
+        LaNameTb.setText("");
+        PhoneTb.setText("");
+        AddressTb.setText("");
+        EducCb.setSelectedIndex(-1);
+        OccupationTb.setText("");
+        PINTb.setText("");
+    }
     private void SubmitBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubmitBTNMouseClicked
        if(ACCNUMTb.getText().isEmpty() || AccNameTb.getText().isEmpty() || LaNameTb.getText().isEmpty() || OccupationTb.getText().isEmpty() 
                || PINTb.getText().isEmpty() || PhoneTb.getText().isEmpty () || AddressTb.getText().isEmpty() || PINTb.getText().isEmpty())
@@ -434,12 +442,16 @@ public class SignUp extends javax.swing.JFrame {
            int row = Add.executeUpdate();
            JOptionPane.showMessageDialog(this,"Account Saved");
            con.close();
-          
+           clear();
            }
        catch(Exception e){
        JOptionPane.showConfirmDialog( this  ,e);
        }
     }//GEN-LAST:event_SubmitBTNMouseClicked
+
+    private void AccNameTnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccNameTnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AccNameTnActionPerformed
 
     /**
      * @param args the command line arguments

@@ -17,6 +17,12 @@ public class MainMenu extends javax.swing.JPanel {
     public MainMenu() {
         initComponents();
     }
+    int MyAccNum;
+    public MainMenu(int AccountNum) {
+        initComponents();
+        MyAccNum=AccountNum;
+        AccNumlbl.setText(""+MyAccNum);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,12 +41,13 @@ public class MainMenu extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         MINISTATEMENTBTN = new javax.swing.JButton();
         DEPOSITBTN1 = new javax.swing.JButton();
-        WITHDRAWALBTN = new javax.swing.JButton();
+        WithdrawBtn = new javax.swing.JButton();
         FASTCASHBTN = new javax.swing.JButton();
         CHANGEPINBTN = new javax.swing.JButton();
         BALANCEBTN = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        AccNumlbl = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -110,19 +117,29 @@ public class MainMenu extends javax.swing.JPanel {
         DEPOSITBTN1.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
         DEPOSITBTN1.setForeground(new java.awt.Color(0, 102, 204));
         DEPOSITBTN1.setText("DEPOSIT");
+        DEPOSITBTN1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DEPOSITBTN1MouseClicked(evt);
+            }
+        });
         DEPOSITBTN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DEPOSITBTN1ActionPerformed(evt);
             }
         });
 
-        WITHDRAWALBTN.setBackground(new java.awt.Color(0, 102, 204));
-        WITHDRAWALBTN.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        WITHDRAWALBTN.setForeground(new java.awt.Color(0, 102, 204));
-        WITHDRAWALBTN.setText("WITHDRAWAL");
-        WITHDRAWALBTN.addActionListener(new java.awt.event.ActionListener() {
+        WithdrawBtn.setBackground(new java.awt.Color(0, 102, 204));
+        WithdrawBtn.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        WithdrawBtn.setForeground(new java.awt.Color(0, 102, 204));
+        WithdrawBtn.setText("WITHDRAWAL");
+        WithdrawBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                WithdrawBtnMouseClicked(evt);
+            }
+        });
+        WithdrawBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WITHDRAWALBTNActionPerformed(evt);
+                WithdrawBtnActionPerformed(evt);
             }
         });
 
@@ -166,6 +183,10 @@ public class MainMenu extends javax.swing.JPanel {
         jLabel5.setText("LOGOUT");
         jLabel5.setMinimumSize(new java.awt.Dimension(100, 14));
 
+        AccNumlbl.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        AccNumlbl.setForeground(new java.awt.Color(255, 0, 0));
+        AccNumlbl.setText("jLabel7");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -180,7 +201,7 @@ public class MainMenu extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BALANCEBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(WITHDRAWALBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(WithdrawBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(MINISTATEMENTBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE))
                 .addGap(54, 54, 54))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -193,7 +214,9 @@ public class MainMenu extends javax.swing.JPanel {
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(165, 165, 165)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AccNumlbl)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -201,10 +224,12 @@ public class MainMenu extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AccNumlbl))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(WITHDRAWALBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(WithdrawBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DEPOSITBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -244,9 +269,9 @@ public class MainMenu extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_DEPOSITBTN1ActionPerformed
 
-    private void WITHDRAWALBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WITHDRAWALBTNActionPerformed
+    private void WithdrawBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WithdrawBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_WITHDRAWALBTNActionPerformed
+    }//GEN-LAST:event_WithdrawBtnActionPerformed
 
     private void FASTCASHBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FASTCASHBTNActionPerformed
         // TODO add your handling code here:
@@ -260,14 +285,25 @@ public class MainMenu extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_BALANCEBTNActionPerformed
 
+    private void DEPOSITBTN1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DEPOSITBTN1MouseClicked
+        new Deposit(MyAccNum).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_DEPOSITBTN1MouseClicked
+
+    private void WithdrawBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WithdrawBtnMouseClicked
+        new Withdraws(MyAccNum).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_WithdrawBtnMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AccNumlbl;
     private javax.swing.JButton BALANCEBTN;
     private javax.swing.JButton CHANGEPINBTN;
     private javax.swing.JButton DEPOSITBTN1;
     private javax.swing.JButton FASTCASHBTN;
     private javax.swing.JButton MINISTATEMENTBTN;
-    private javax.swing.JButton WITHDRAWALBTN;
+    private javax.swing.JButton WithdrawBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -277,4 +313,8 @@ public class MainMenu extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
+    private void dispose() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

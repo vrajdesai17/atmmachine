@@ -74,6 +74,9 @@
               <Color blue="cc" green="99" red="0" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel3MouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -126,6 +129,9 @@
                   <Dimension value="[100, 14]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel1MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
@@ -283,6 +289,7 @@
             <Property name="text" type="java.lang.String" value="MINI STATEMENT"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MINISTATEMENTBTNMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MINISTATEMENTBTNActionPerformed"/>
           </Events>
         </Component>
@@ -336,6 +343,7 @@
             <Property name="text" type="java.lang.String" value="FASTCASH"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="FASTCASHBTNMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FASTCASHBTNActionPerformed"/>
           </Events>
         </Component>
@@ -353,6 +361,7 @@
             <Property name="text" type="java.lang.String" value="CHANGEPIN"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CHANGEPINBTNMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CHANGEPINBTNActionPerformed"/>
           </Events>
         </Component>
@@ -370,6 +379,7 @@
             <Property name="text" type="java.lang.String" value="BALANCE"/>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BALANCEBTNMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BALANCEBTNActionPerformed"/>
           </Events>
         </Component>
@@ -400,6 +410,9 @@
               <Dimension value="[100, 14]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel5MouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="AccNumlbl">
           <Properties>

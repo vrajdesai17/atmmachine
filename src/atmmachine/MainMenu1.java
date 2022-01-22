@@ -42,11 +42,21 @@ public class MainMenu1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 204));
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("X");
         jLabel1.setMinimumSize(new java.awt.Dimension(100, 14));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 255));
@@ -112,6 +122,11 @@ public class MainMenu1 extends javax.swing.JFrame {
         MINISTATEMENTBTN.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
         MINISTATEMENTBTN.setForeground(new java.awt.Color(51, 51, 51));
         MINISTATEMENTBTN.setText("MINI STATEMENT");
+        MINISTATEMENTBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MINISTATEMENTBTNMouseClicked(evt);
+            }
+        });
         MINISTATEMENTBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MINISTATEMENTBTNActionPerformed(evt);
@@ -152,6 +167,11 @@ public class MainMenu1 extends javax.swing.JFrame {
         FASTCASHBTN.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
         FASTCASHBTN.setForeground(new java.awt.Color(51, 51, 51));
         FASTCASHBTN.setText("FASTCASH");
+        FASTCASHBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FASTCASHBTNMouseClicked(evt);
+            }
+        });
         FASTCASHBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FASTCASHBTNActionPerformed(evt);
@@ -162,6 +182,11 @@ public class MainMenu1 extends javax.swing.JFrame {
         CHANGEPINBTN.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
         CHANGEPINBTN.setForeground(new java.awt.Color(51, 51, 51));
         CHANGEPINBTN.setText("CHANGEPIN");
+        CHANGEPINBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CHANGEPINBTNMouseClicked(evt);
+            }
+        });
         CHANGEPINBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CHANGEPINBTNActionPerformed(evt);
@@ -172,6 +197,11 @@ public class MainMenu1 extends javax.swing.JFrame {
         BALANCEBTN.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
         BALANCEBTN.setForeground(new java.awt.Color(51, 51, 51));
         BALANCEBTN.setText("BALANCE");
+        BALANCEBTN.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BALANCEBTNMouseClicked(evt);
+            }
+        });
         BALANCEBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BALANCEBTNActionPerformed(evt);
@@ -187,6 +217,11 @@ public class MainMenu1 extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(204, 0, 51));
         jLabel5.setText("LOGOUT");
         jLabel5.setMinimumSize(new java.awt.Dimension(100, 14));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         AccNumlbl.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         AccNumlbl.setForeground(new java.awt.Color(255, 0, 0));
@@ -319,6 +354,39 @@ public class MainMenu1 extends javax.swing.JFrame {
     private void BALANCEBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BALANCEBTNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BALANCEBTNActionPerformed
+
+    private void BALANCEBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BALANCEBTNMouseClicked
+        new Balances(MyAccNum).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BALANCEBTNMouseClicked
+
+    private void CHANGEPINBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CHANGEPINBTNMouseClicked
+        new ChangePin(MyAccNum).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_CHANGEPINBTNMouseClicked
+
+    private void FASTCASHBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FASTCASHBTNMouseClicked
+        new FastCash(MyAccNum).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_FASTCASHBTNMouseClicked
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+      
+    }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        System.exit(1);
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void MINISTATEMENTBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MINISTATEMENTBTNMouseClicked
+        new MiniStatements(MyAccNum).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_MINISTATEMENTBTNMouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        new Login().setVisible(true);
+        this. dispose();
+    }//GEN-LAST:event_jLabel5MouseClicked
 
    
     public static void main(String args[]) {

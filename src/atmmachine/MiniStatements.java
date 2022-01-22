@@ -4,6 +4,12 @@
  */
 package atmmachine;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 /**
  *
  * @author User
@@ -15,7 +21,33 @@ public class MiniStatements extends javax.swing.JFrame {
      */
     public MiniStatements() {
         initComponents();
+        DisplayTr();
     }
+    int MyAccNum;
+    public MiniStatements(int AccNum) {
+        initComponents();
+        MyAccNum = AccNum;
+    }
+    Connection Con = null;
+    PreparedStatement pst = null;
+    ResultSet Rs = null;
+    Statement St = null;
+
+    MiniStatements(int MyAccNum) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    private void DisplayTr()
+    {
+        try {
+             Connection Con =DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+             St = Con.createStatement();
+             Rs = St.executeQuery ("select * from TrasanctionTbl where AccNum="+MyAccNum+"");
+             MiniStatementsTable.setModel(DbUtils.resultsetToTableModel(Rs));
+        }catch(Exception e){
+            
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,6 +77,11 @@ public class MiniStatements extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("X");
         jLabel1.setMinimumSize(new java.awt.Dimension(100, 14));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 48)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 255));
@@ -82,6 +119,11 @@ public class MiniStatements extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(204, 0, 51));
         jLabel5.setText("BACK");
         jLabel5.setMinimumSize(new java.awt.Dimension(100, 14));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -141,6 +183,15 @@ public class MiniStatements extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        new MainMenu().setVisible(true);
+        this. dispose();
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+         System.exit(1);
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments

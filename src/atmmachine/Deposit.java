@@ -43,8 +43,8 @@ public class Deposit extends javax.swing.JFrame {
         String Query = "select * from Accounttbl where AccNum='"+MyAccNum+"'";
         try{
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             St1 = (Statement) con.createStatement();
             Rs1 = St1.executeQuery(Query);
             if(Rs1.next()){
@@ -71,7 +71,7 @@ public class Deposit extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         AmountTb = new javax.swing.JTextField();
         DEPOSITBTN = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
+        Back = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
         jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 48)); // NOI18N
@@ -142,13 +142,8 @@ public class Deposit extends javax.swing.JFrame {
 
         AmountTb.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         AmountTb.setForeground(new java.awt.Color(255, 0, 51));
-        AmountTb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AmountTbActionPerformed(evt);
-            }
-        });
 
-        DEPOSITBTN.setBackground(new java.awt.Color(0, 102, 204));
+        DEPOSITBTN.setBackground(new java.awt.Color(255, 255, 255));
         DEPOSITBTN.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         DEPOSITBTN.setForeground(new java.awt.Color(0, 102, 204));
         DEPOSITBTN.setText("DEPOSIT");
@@ -157,19 +152,14 @@ public class Deposit extends javax.swing.JFrame {
                 DEPOSITBTNMouseClicked(evt);
             }
         });
-        DEPOSITBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DEPOSITBTNActionPerformed(evt);
-            }
-        });
 
-        jLabel11.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel11.setText("BACK");
-        jLabel11.setMinimumSize(new java.awt.Dimension(100, 14));
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+        Back.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 12)); // NOI18N
+        Back.setForeground(new java.awt.Color(0, 0, 255));
+        Back.setText("BACK");
+        Back.setMinimumSize(new java.awt.Dimension(100, 14));
+        Back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
+                BackMouseClicked(evt);
             }
         });
 
@@ -206,7 +196,7 @@ public class Deposit extends javax.swing.JFrame {
                             .addComponent(AmountTb, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(137, 137, 137))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(215, 215, 215))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -222,7 +212,7 @@ public class Deposit extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(DEPOSITBTN)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -242,33 +232,25 @@ public class Deposit extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    String Mydate;
+    String dateOnly;
  public void GetDate(){
-    Date d= new Date();
-    SimpleDateFormat s = new SimpleDateFormat ("DD-MM-YYYY");
-    String MyDate = s.format(d);
-}
-    private void AmountTbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmountTbActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AmountTbActionPerformed
-
-    private void DEPOSITBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DEPOSITBTNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DEPOSITBTNActionPerformed
-    private void DepositMoney(){
+       Date currentDate = new Date();
+       SimpleDateFormat dateFormat= new SimpleDateFormat("dd/MMM/yyyy");
+       dateOnly = dateFormat.format(currentDate);
+}    private void DepositMoney(){
         try{
             GetDate();
-           Class.forName("com.mysql.cj.jdbc.Driver");
+          
            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
-           PreparedStatement Add = con.prepareStatement("insert into TransactionTbl values(?,?,?,?) ");
+           // Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+            
+           PreparedStatement Add = con.prepareStatement("insert into TransactionTbl values(?,?,?,?,?) ");
            Add.setInt(1,1);
-           Add.setInt(2, MyAccNum);
-           Add.setString(3,"Deposit");
-           Add.setString(4,AmountTb.getText());
-            String MyDate = null;
-           Add.setString(5,MyDate);
+           Add.setString(2,"Deposit");
+           Add.setString(3,dateOnly);
+           Add.setInt(4, MyAccNum);
+           Add.setInt(5,Integer.valueOf(AmountTb.getText()));
            int row = Add.executeUpdate();
            //JOptionPane.showMessageDialog(this,"Account Saved");
            con.close();
@@ -288,8 +270,8 @@ public class Deposit extends javax.swing.JFrame {
             try{
             String Query = "Update AccountTbl set Balance =? Where AccNum =? ";
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+            // Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             PreparedStatement ps=con.prepareStatement(Query);
             ps.setInt(1, OldBalance+Integer.valueOf(AmountTb.getText()));
             ps.setInt(2, MyAccNum);
@@ -297,8 +279,8 @@ public class Deposit extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(this, "Balance Updated");
                 DepositMoney();
-                new MainMenu().setVisible(true);
-        this. dispose();
+                new MainMenu1(MyAccNum).setVisible(true);
+                this. dispose();
             }else{
                 JOptionPane.showMessageDialog(this, "Missing Information");
             }
@@ -308,10 +290,11 @@ public class Deposit extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_DEPOSITBTNMouseClicked
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-      new MainMenu().setVisible(true);
+    private void BackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMouseClicked
+        new MainMenu1(MyAccNum).setVisible(true);
         this. dispose();
-    }//GEN-LAST:event_jLabel11MouseClicked
+        
+    }//GEN-LAST:event_BackMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
        System.exit(1);
@@ -354,9 +337,9 @@ public class Deposit extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AmountTb;
+    private javax.swing.JLabel Back;
     private javax.swing.JButton DEPOSITBTN;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

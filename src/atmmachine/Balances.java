@@ -25,6 +25,7 @@ public class Balances extends javax.swing.JFrame {
     public Balances() {
         initComponents();
     }
+    
     int MyAccNum;
     public Balances(int AccNum) {
         initComponents();
@@ -42,8 +43,8 @@ public class Balances extends javax.swing.JFrame {
         String Query = "select * from Accounttbl where AccNum='"+MyAccNum+"'";
         try{
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             St1 = (Statement) con.createStatement();
             Rs1 = St1.executeQuery(Query);
             if(Rs1.next()){
@@ -228,7 +229,7 @@ public class Balances extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-        new MainMenu().setVisible(true);
+      new MainMenu1(MyAccNum).setVisible(true);
         this. dispose();
     }//GEN-LAST:event_jLabel12MouseClicked
 
@@ -282,7 +283,5 @@ public class Balances extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 
-    private void initComponents() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
 }

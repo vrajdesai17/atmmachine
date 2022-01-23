@@ -74,7 +74,7 @@
                           <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel11" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="Back" min="-2" pref="31" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -95,7 +95,7 @@
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="DEPOSITBTN" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jLabel11" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="Back" min="-2" pref="23" max="-2" attributes="0"/>
                   <EmptySpace pref="27" max="32767" attributes="0"/>
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -226,14 +226,11 @@
               <Color blue="33" green="0" red="ff" type="rgb"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AmountTbActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="DEPOSITBTN">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="66" red="0" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Berlin Sans FB Demi" size="18" style="0"/>
@@ -245,10 +242,9 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DEPOSITBTNMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DEPOSITBTNActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel11">
+        <Component class="javax.swing.JLabel" name="Back">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tw Cen MT Condensed Extra Bold" size="12" style="0"/>
@@ -262,7 +258,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel11MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BackMouseClicked"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel4">

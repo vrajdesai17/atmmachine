@@ -433,8 +433,8 @@ public class SignUp extends javax.swing.JFrame {
            try{
            Class.forName("com.mysql.cj.jdbc.Driver");
            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
            PreparedStatement Add = con.prepareStatement("insert into AccountTbl values(?,?,?,?,?,?,?,?,?,?) ");
            Add.setInt(1,Integer.valueOf(ACCNUMTn.getText()));
            Add.setString(2,AccNameTn.getText());
@@ -461,7 +461,7 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_AccNameTnActionPerformed
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        new MainMenu().setVisible(true);
+        new Login().setVisible(true);
         this. dispose();
     }//GEN-LAST:event_jLabel9MouseClicked
 

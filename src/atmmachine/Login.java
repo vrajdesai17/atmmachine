@@ -106,14 +106,8 @@ public class Login extends javax.swing.JFrame {
 
         UnameTb.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         UnameTb.setForeground(new java.awt.Color(255, 0, 51));
-        UnameTb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UnameTbActionPerformed(evt);
-            }
-        });
 
         PasswordTb.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
-        PasswordTb.setText("jPasswordField1");
 
         jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 255));
@@ -130,18 +124,13 @@ public class Login extends javax.swing.JFrame {
         jLabel10.setText("ACC NUM");
         jLabel10.setMinimumSize(new java.awt.Dimension(100, 14));
 
-        LoginBtn.setBackground(new java.awt.Color(0, 102, 204));
+        LoginBtn.setBackground(new java.awt.Color(255, 255, 255));
         LoginBtn.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
-        LoginBtn.setForeground(new java.awt.Color(0, 102, 204));
+        LoginBtn.setForeground(new java.awt.Color(255, 51, 51));
         LoginBtn.setText("LOGIN");
         LoginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 LoginBtnMouseClicked(evt);
-            }
-        });
-        LoginBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginBtnActionPerformed(evt);
             }
         });
 
@@ -216,14 +205,6 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LoginBtnActionPerformed
-
-    private void UnameTbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UnameTbActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UnameTbActionPerformed
-
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         new SignUp().setVisible(true);
         this.dispose();
@@ -241,8 +222,8 @@ public class Login extends javax.swing.JFrame {
             String Query = "select * from Accounttbl where AccNum='"+UnameTb.getText()+"' and PIN="+PasswordTb.getText()+"";
         try{
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             St = con.createStatement();
             Rs = St.executeQuery(Query);
             if(Rs.next()){

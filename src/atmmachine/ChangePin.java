@@ -118,9 +118,9 @@ public class ChangePin extends javax.swing.JFrame {
             }
         });
 
-        ChangeOtn.setBackground(new java.awt.Color(0, 102, 204));
+        ChangeOtn.setBackground(new java.awt.Color(255, 255, 255));
         ChangeOtn.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
-        ChangeOtn.setForeground(new java.awt.Color(0, 102, 204));
+        ChangeOtn.setForeground(new java.awt.Color(204, 0, 51));
         ChangeOtn.setText("CHANGE");
         ChangeOtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -258,15 +258,15 @@ Connection conn = null;
            try{
             String Query = "Update AccountTbl set PIN =? Where AccNum =? ";
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             PreparedStatement ps=con.prepareStatement(Query);
             ps.setInt(1, Integer.valueOf(NewPin.getText()));
             ps.setInt(2, MyAccNum);
             if(ps.executeUpdate() == 1)
             {
                 JOptionPane.showMessageDialog(this, "PIN Updated");
-                new MainMenu().setVisible(true);
+               new MainMenu1(MyAccNum).setVisible(true);
         this. dispose();
             }else{
                 JOptionPane.showMessageDialog(this, "Missing Information");
@@ -278,7 +278,7 @@ Connection conn = null;
     }//GEN-LAST:event_ChangeOtnMouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-       new MainMenu().setVisible(true);
+      new MainMenu1(MyAccNum).setVisible(true);
         this. dispose();
     }//GEN-LAST:event_jLabel11MouseClicked
 

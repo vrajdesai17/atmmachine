@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package atmmachine;
 
 import java.awt.HeadlessException;
@@ -32,6 +29,7 @@ int MyAccNum;
         //AccNumLbl.setText(""+AccNum);
         GetBalance();
     }
+     
     Connection conn = null;
     PreparedStatement pst = null,pst1=null;
     ResultSet Rs = null,Rs1=null;
@@ -42,8 +40,8 @@ int MyAccNum;
         String Query = "select * from Accounttbl where AccNum='"+MyAccNum+"'";
         try{
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+           // Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             St1 = (Statement) con.createStatement();
             Rs1 = St1.executeQuery(Query);
             if(Rs1.next()){
@@ -56,7 +54,7 @@ int MyAccNum;
         }catch (HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(this, e);
         }   
-    
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,7 +65,7 @@ int MyAccNum;
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         MINISTATEMENTBTN = new javax.swing.JButton();
-        DEPOSITBTN1 = new javax.swing.JButton();
+        DEPOSITBTN = new javax.swing.JButton();
         WITHDRAWALBTN = new javax.swing.JButton();
         FASTCASHBTN = new javax.swing.JButton();
         CHANGEPINBTN = new javax.swing.JButton();
@@ -125,91 +123,55 @@ int MyAccNum;
 
         MINISTATEMENTBTN.setBackground(new java.awt.Color(0, 102, 204));
         MINISTATEMENTBTN.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        MINISTATEMENTBTN.setForeground(new java.awt.Color(0, 102, 204));
         MINISTATEMENTBTN.setText("RS 10000");
         MINISTATEMENTBTN.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 MINISTATEMENTBTNMouseClicked(evt);
             }
         });
-        MINISTATEMENTBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MINISTATEMENTBTNActionPerformed(evt);
-            }
-        });
 
-        DEPOSITBTN1.setBackground(new java.awt.Color(0, 102, 204));
-        DEPOSITBTN1.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        DEPOSITBTN1.setForeground(new java.awt.Color(0, 102, 204));
-        DEPOSITBTN1.setText("RS 1000");
-        DEPOSITBTN1.addMouseListener(new java.awt.event.MouseAdapter() {
+        DEPOSITBTN.setBackground(new java.awt.Color(0, 102, 204));
+        DEPOSITBTN.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
+        DEPOSITBTN.setText("RS 1000");
+        DEPOSITBTN.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                DEPOSITBTN1MouseClicked(evt);
-            }
-        });
-        DEPOSITBTN1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DEPOSITBTN1ActionPerformed(evt);
+                DEPOSITBTNMouseClicked(evt);
             }
         });
 
         WITHDRAWALBTN.setBackground(new java.awt.Color(0, 102, 204));
         WITHDRAWALBTN.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        WITHDRAWALBTN.setForeground(new java.awt.Color(0, 102, 204));
         WITHDRAWALBTN.setText("RS 2500");
         WITHDRAWALBTN.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 WITHDRAWALBTNMouseClicked(evt);
             }
         });
-        WITHDRAWALBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WITHDRAWALBTNActionPerformed(evt);
-            }
-        });
 
         FASTCASHBTN.setBackground(new java.awt.Color(0, 102, 204));
         FASTCASHBTN.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        FASTCASHBTN.setForeground(new java.awt.Color(0, 102, 204));
         FASTCASHBTN.setText("RS 5000");
         FASTCASHBTN.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 FASTCASHBTNMouseClicked(evt);
             }
         });
-        FASTCASHBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FASTCASHBTNActionPerformed(evt);
-            }
-        });
 
         CHANGEPINBTN.setBackground(new java.awt.Color(0, 102, 204));
         CHANGEPINBTN.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        CHANGEPINBTN.setForeground(new java.awt.Color(0, 102, 204));
         CHANGEPINBTN.setText("RS 20000");
         CHANGEPINBTN.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CHANGEPINBTNMouseClicked(evt);
             }
         });
-        CHANGEPINBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CHANGEPINBTNActionPerformed(evt);
-            }
-        });
 
         BALANCEBTN.setBackground(new java.awt.Color(0, 102, 204));
         BALANCEBTN.setFont(new java.awt.Font("SimSun", 0, 24)); // NOI18N
-        BALANCEBTN.setForeground(new java.awt.Color(0, 102, 204));
         BALANCEBTN.setText("RS 25000");
         BALANCEBTN.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BALANCEBTNMouseClicked(evt);
-            }
-        });
-        BALANCEBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BALANCEBTNActionPerformed(evt);
             }
         });
 
@@ -240,7 +202,7 @@ int MyAccNum;
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CHANGEPINBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(FASTCASHBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DEPOSITBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(DEPOSITBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(76, 76, 76)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(MINISTATEMENTBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,7 +232,7 @@ int MyAccNum;
                 .addComponent(BalLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DEPOSITBTN1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DEPOSITBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(WITHDRAWALBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -299,31 +261,7 @@ int MyAccNum;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MINISTATEMENTBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MINISTATEMENTBTNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MINISTATEMENTBTNActionPerformed
-
-    private void DEPOSITBTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DEPOSITBTN1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DEPOSITBTN1ActionPerformed
-
-    private void WITHDRAWALBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WITHDRAWALBTNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_WITHDRAWALBTNActionPerformed
-
-    private void FASTCASHBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FASTCASHBTNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FASTCASHBTNActionPerformed
-
-    private void CHANGEPINBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CHANGEPINBTNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CHANGEPINBTNActionPerformed
-
-    private void BALANCEBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BALANCEBTNActionPerformed
-       
-    }//GEN-LAST:event_BALANCEBTNActionPerformed
-
-    private void DEPOSITBTN1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DEPOSITBTN1MouseClicked
+    private void DEPOSITBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DEPOSITBTNMouseClicked
       if(OldBalance < 1000){
           JOptionPane.showMessageDialog(this, "No Enough Balance");
     }
@@ -331,15 +269,15 @@ int MyAccNum;
             try{
             String Query = "Update AccountTbl set Balance =? Where AccNum =? ";
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             PreparedStatement ps=con.prepareStatement(Query);
             ps.setInt(1, OldBalance-1000);
             ps.setInt(2, MyAccNum);
             if(ps.executeUpdate() == 1)
             {
                 JOptionPane.showMessageDialog(this, "Balance Updated");
-                new MainMenu().setVisible(true);
+                new MainMenu1(MyAccNum).setVisible(true);
         this. dispose();
             }else{
                 JOptionPane.showMessageDialog(this, "Missing Information");
@@ -348,7 +286,7 @@ int MyAccNum;
                 JOptionPane.showMessageDialog(this, e);
             }
         } 
-    }//GEN-LAST:event_DEPOSITBTN1MouseClicked
+    }//GEN-LAST:event_DEPOSITBTNMouseClicked
 
     private void WITHDRAWALBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WITHDRAWALBTNMouseClicked
         if(OldBalance < 2500){
@@ -358,15 +296,15 @@ int MyAccNum;
             try{
             String Query = "Update AccountTbl set Balance =? Where AccNum =? ";
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             PreparedStatement ps=con.prepareStatement(Query);
             ps.setInt(1, OldBalance-2500);
             ps.setInt(2, MyAccNum);
             if(ps.executeUpdate() == 1)
             {
                 JOptionPane.showMessageDialog(this, "Balance Updated");
-                new MainMenu().setVisible(true);
+                new MainMenu1(MyAccNum).setVisible(true);
         this. dispose();
             }else{
                 JOptionPane.showMessageDialog(this, "Missing Information");
@@ -385,15 +323,15 @@ int MyAccNum;
             try{
             String Query = "Update AccountTbl set Balance =? Where AccNum =? ";
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             PreparedStatement ps=con.prepareStatement(Query);
             ps.setInt(1, OldBalance-5000);
             ps.setInt(2, MyAccNum);
             if(ps.executeUpdate() == 1)
             {
                 JOptionPane.showMessageDialog(this, "Balance Updated");
-                new MainMenu().setVisible(true);
+                new MainMenu1(MyAccNum).setVisible(true);
         this. dispose();
             }else{
                 JOptionPane.showMessageDialog(this, "Missing Information");
@@ -404,33 +342,6 @@ int MyAccNum;
         } 
     }//GEN-LAST:event_FASTCASHBTNMouseClicked
 
-    private void MINISTATEMENTBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MINISTATEMENTBTNMouseClicked
-        if(OldBalance < 10000){
-          JOptionPane.showMessageDialog(this, "No Enough Balance");
-    }
-        {
-            try{
-            String Query = "Update AccountTbl set Balance =? Where AccNum =? ";
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
-            PreparedStatement ps=con.prepareStatement(Query);
-            ps.setInt(1, OldBalance-10000);
-            ps.setInt(2, MyAccNum);
-            if(ps.executeUpdate() == 1)
-            {
-                JOptionPane.showMessageDialog(this, "Balance Updated");
-                new MainMenu().setVisible(true);
-        this. dispose();
-            }else{
-                JOptionPane.showMessageDialog(this, "Missing Information");
-            }
-            }catch (Exception e){
-                JOptionPane.showMessageDialog(this, e);
-            }
-        } 
-    }//GEN-LAST:event_MINISTATEMENTBTNMouseClicked
-
     private void CHANGEPINBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CHANGEPINBTNMouseClicked
         if(OldBalance < 20000){
           JOptionPane.showMessageDialog(this, "No Enough Balance");
@@ -439,15 +350,15 @@ int MyAccNum;
             try{
             String Query = "Update AccountTbl set Balance =? Where AccNum =? ";
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+           // Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+           Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             PreparedStatement ps=con.prepareStatement(Query);
             ps.setInt(1, OldBalance-20000);
             ps.setInt(2, MyAccNum);
             if(ps.executeUpdate() == 1)
             {
                 JOptionPane.showMessageDialog(this, "Balance Updated");
-                new MainMenu().setVisible(true);
+                new MainMenu1(MyAccNum).setVisible(true);
         this. dispose();
             }else{
                 JOptionPane.showMessageDialog(this, "Missing Information");
@@ -466,15 +377,15 @@ int MyAccNum;
             try{
             String Query = "Update AccountTbl set Balance =? Where AccNum =? ";
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
-            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
             PreparedStatement ps=con.prepareStatement(Query);
             ps.setInt(1, OldBalance-25000);
             ps.setInt(2, MyAccNum);
             if(ps.executeUpdate() == 1)
             {
                 JOptionPane.showMessageDialog(this, "Balance Updated");
-                new MainMenu().setVisible(true);
+                new MainMenu1(MyAccNum).setVisible(true);
         this. dispose();
             }else{
                 JOptionPane.showMessageDialog(this, "Missing Information");
@@ -486,13 +397,40 @@ int MyAccNum;
     }//GEN-LAST:event_BALANCEBTNMouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        new MainMenu().setVisible(true);
+        new Login().setVisible(true);
         this. dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         System.exit(1);
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void MINISTATEMENTBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MINISTATEMENTBTNMouseClicked
+        if(OldBalance < 10000){
+            JOptionPane.showMessageDialog(this, "No Enough Balance");
+        }
+        {
+            try{
+                String Query = "Update AccountTbl set Balance =? Where AccNum =? ";
+                //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
+                //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
+                Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
+                PreparedStatement ps=con.prepareStatement(Query);
+                ps.setInt(1, OldBalance-10000);
+                ps.setInt(2, MyAccNum);
+                if(ps.executeUpdate() == 1)
+                {
+                    JOptionPane.showMessageDialog(this, "Balance Updated");
+                   new MainMenu1(MyAccNum).setVisible(true);
+                    this. dispose();
+                }else{
+                    JOptionPane.showMessageDialog(this, "Missing Information");
+                }
+            }catch (Exception e){
+                JOptionPane.showMessageDialog(this, e);
+            }
+        }
+    }//GEN-LAST:event_MINISTATEMENTBTNMouseClicked
 
     /**
      * @param args the command line arguments
@@ -522,10 +460,8 @@ int MyAccNum;
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FastCash().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FastCash().setVisible(true);
         });
     }
 
@@ -533,7 +469,7 @@ int MyAccNum;
     private javax.swing.JButton BALANCEBTN;
     private javax.swing.JLabel BalLbl;
     private javax.swing.JButton CHANGEPINBTN;
-    private javax.swing.JButton DEPOSITBTN1;
+    private javax.swing.JButton DEPOSITBTN;
     private javax.swing.JButton FASTCASHBTN;
     private javax.swing.JButton MINISTATEMENTBTN;
     private javax.swing.JButton WITHDRAWALBTN;
@@ -545,9 +481,7 @@ int MyAccNum;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 
-    private void initComponents() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+  
 
-    
+}
 

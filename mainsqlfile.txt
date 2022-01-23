@@ -1,28 +1,46 @@
-Create Database Atmdb
-
+use atmdb;
 Create Table AccountTbl
 (
 AccNum Integer,
 Name varchar(20),
 LName varchar(20),
-Dob varchar(100),
+Dob Date,
 Phone varchar(10),
 Address varchar(100),
 Education varchar(20),
 Occupation varchar(20),
 Balance Integer
 );
-
 Alter table AccountTbl 
 Add Pin Integer;
-
-
-
 Create Table TransactionTbl
 (
 Tid Integer,
 AccNum Integer,
 Type Integer,
-TDate Date
+TDate Date 
 );
+Alter table AccountTbl
+Modify Column Dob varchar(100);
+select * from AccountTbl
+select * from TransactionTbl
+
+Alter table AccountTbl
+ADD PRIMARY KEY (AccNum)	
+
+Alter Table TransactionTbl
+ADD
+FOREIGN KEY (AccNum) REFERENCES AccountTbl(AccNum);
+
+select * from TransactionTbl
+desc TransactionTbl
+
+Alter Table TransactionTbl
+MODIFY COLUMN Type varchar(100); 
+
+Alter table TransactionTbl
+Add Column Amount Integer
+
+Alter Table TransactionTbl
+MODIFY COLUMN Tdate varchar(100); 
 

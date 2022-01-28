@@ -219,7 +219,7 @@ public class Login extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(this, "Enter account or PIN number");
         }else{
-            String Query = "select * from Accounttbl where AccNum='"+UnameTb.getText()+"' and PIN="+PasswordTb.getText()+"";
+            String Query = "select * from AccountTbl where AccNum='"+UnameTb.getText()+"' and PIN="+PasswordTb.getText()+"";
         try{
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");

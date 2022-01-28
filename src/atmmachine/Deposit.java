@@ -240,7 +240,11 @@ public class Deposit extends javax.swing.JFrame {
 }    private void DepositMoney(){
         try{
             GetDate();
-          
+           if(Integer.valueOf(AmountTb.getText())<0){
+           JOptionPane.showMessageDialog(this, "cant have negative value here");
+           
+           }
+           else{
            //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
            // Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","server");
@@ -256,17 +260,24 @@ public class Deposit extends javax.swing.JFrame {
            con.close();
           // clear();
            }
+        }
        catch(Exception e){
        JOptionPane.showMessageDialog( this  ,e);
        }
+        
     }
     private void DEPOSITBTNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DEPOSITBTNMouseClicked
+         
         if(AmountTb.getText().isEmpty() || AmountTb.getText().equals(0))
         {
             JOptionPane.showMessageDialog(this, "Enter Valid Amount:");
         }
         else
-        {
+        {   if(Integer.valueOf(AmountTb.getText())<0){
+           JOptionPane.showMessageDialog(this, "cant have negative value here");
+           
+            }
+        else{
             try{
             String Query = "Update AccountTbl set Balance =? Where AccNum =? ";
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
@@ -287,6 +298,7 @@ public class Deposit extends javax.swing.JFrame {
             }catch (Exception e){
                 JOptionPane.showMessageDialog(this, e);
             }
+        }
         }
     }//GEN-LAST:event_DEPOSITBTNMouseClicked
 

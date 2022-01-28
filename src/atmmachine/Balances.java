@@ -40,7 +40,7 @@ public class Balances extends javax.swing.JFrame {
     int OldBalance;
     private void GetBalance()
     {
-        String Query = "select * from Accounttbl where AccNum='"+MyAccNum+"'";
+        String Query = "select * from AccountTbl where AccNum='"+MyAccNum+"'";
         try{
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","Vraj@6636");
             //Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/atmdb","root","aayushi17");

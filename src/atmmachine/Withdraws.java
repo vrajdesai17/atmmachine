@@ -333,7 +333,7 @@ public class Withdraws extends javax.swing.JFrame {
         }
      else if(OldBalance < Integer.valueOf(AmountTb.getText())){
           JOptionPane.showMessageDialog(this, "No Enough Balance");
-    }
+    }else
         {
             try{
             String Query = "Update AccountTbl set Balance =? Where AccNum =? ";
